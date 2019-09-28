@@ -5,12 +5,15 @@ const mysql = require('mysql2/promise');
 const Telegram = require('telegraf/telegram');
 
 // create connection to database
-const connection = mysql.createConnection({
-    host: process.env.MYSQL_HOST,
-    database: process.env.MYSQL_DB,
-    user: process.env.MYSQL_USER,
-    password: process.env.MYSQL_PASSWD,
-})
+async function createConnection() {
+    const connection = await mysql.createConnection({
+        host: process.env.MYSQL_HOST,
+        database: process.env.MYSQL_DB,
+        user: process.env.MYSQL_USER,
+        password: process.env.MYSQL_PASSWD,
+    })
+    return connection;
+}
 
 // check whether table with posts exists, if no, add table
 const checkTable = async () => {
@@ -52,7 +55,7 @@ const parseRSS = async (feed) => {
 
 // run all
 const run = async () => {
-    let connect = await connection;
+    await createConnection();
     await checkTable();
     let feed = await rss_parser.parseURL('http://wumo.com/wumo?view=rss');
     await parseRSS(feed);
