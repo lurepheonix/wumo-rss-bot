@@ -1,0 +1,24 @@
+{
+  "name": "wumo-bot",
+  "version": "1.0.0",
+  "description": "reposts from wumo rss channel",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "rss",
+    "wumo",
+    "telegram",
+    "telegraf",
+    "repost"
+  ],
+  "author": "Ghostly Cat",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^8.1.0",
+    "mysql2": "^1.7.0",
+    "rss-parser": "^3.7.2",
+    "telegraf": "^3.32.0"
+  }
+}
