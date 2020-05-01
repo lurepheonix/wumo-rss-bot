@@ -1,0 +1,9 @@
+{
+    "dependencies": {
+        "dotenv": "^8.2.0",
+        "rss-parser": "^3.7.6",
+        "sqlite": "^4.0.7",
+        "sqlite3": "^4.2.0",
+        "telegraf": "^3.38.0"
+    }
+}
